@@ -1,0 +1,48 @@
+.banner {
+	&--flex {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		//justify-content: center;
+		height: calc(100vh);
+
+		> div {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+	&--hv {
+
+	}
+
+	&--hero {
+		position: relative;
+		overflow: hidden;
+
+		.banner__stretch {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			bottom: 0;
+			left: 50%;
+			z-index: $zIndex-neg;
+			width: 100%;
+			height: auto;
+			max-width: none;
+			max-height: none;
+			transform: translate3d(-50%, -50%, 0);
+		}
+	}
+
+	&__caption {
+		max-width: 420px;
+		color: $color-white;
+
+		.title--lg {
+			&:not(:last-child) {
+				margin-bottom: 25px;
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+.header {
+	&--primary {
+		padding: 10px 0;
+	}
+
+	&--is {
+		&-sticky {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: $zIndex-higher;
+			background: {
+				color: transparent;
+			}
+		}
+	}
+}

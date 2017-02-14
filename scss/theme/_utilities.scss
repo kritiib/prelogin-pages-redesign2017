@@ -1,0 +1,139 @@
+[data-bkg="true"] {
+	background: {
+		position: center center;
+		repeat: no-repeat;
+		size: cover;
+	}
+}
+
+.btn {
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 135px;
+	border: 2px solid transparent;
+	border-radius: 100px;
+	font-size: $fs-menu;
+	text-align: center;
+	line-height: 1;
+
+	&--md {
+		padding: 12px 15px;
+	}
+
+	&--lg {
+		padding: 20px 22px;
+		font-size: 1.125rem;
+	}
+
+	&--signup {
+		padding: 17px 20px;
+		min-width: 220px;
+		text-transform: $uc;
+	}
+
+	&--green {
+		background: {
+			color: $color-green;
+		}
+		color: $color-white;
+
+		&:hover {
+			background-color: transparent;
+			border-color: $color-green;
+			color: $color-green;
+		}
+	}
+}
+
+.js-lightbox {
+	color: $color-blue;
+
+	&:hover {
+		opacity: 0.75;
+		color: $color-blue;
+	}
+}
+
+.icon {
+	&--md {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 1.25rem;
+		width: 2.938rem;
+		height: 2.938rem;
+		border-radius: 50%;
+		font-size: 0.875rem;
+		text-align: center;
+		line-height: 2.938rem;
+	}
+
+	&--white {
+		background: {
+			color: $color-white;
+		}
+		color: $color-black;
+	}
+}
+
+.gap {
+	&-top25 {
+		margin-top: 25px;
+	}
+
+	&-top40 {
+		margin-top: 30px;
+	}
+
+	&-top50 {
+		margin-top: 50px;
+	}
+
+	&-btm25 {
+		margin-bottom: 25px;
+	}
+}
+
+.comp {
+	&--abs {
+		position: absolute;
+		right: 0;
+		bottom: 100px;
+		left: 0;
+		//overflow: hidden;
+		margin: 0 auto;
+		padding: 0 15px;
+		max-width: 180px;
+		text-align: center;
+
+		i {
+			display: inline-block;
+			color: $color-white;
+			font-size: 2.5rem;
+		}
+
+		> span {
+			display: block;
+			margin-top: 10px;
+			color: $color-white;
+			font-size: 0.8rem;
+			font-weight: $fw-bold;
+		}
+	}
+}
+
+.no-gutter {
+	> [class*="col-"] {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+.color {
+	&--green {
+		color: $color-green;
+	}
+
+	&--gray9d {
+		color: $color-gray9d;
+	}
+}

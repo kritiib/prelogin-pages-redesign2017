@@ -1,0 +1,56 @@
+.icontainer {
+	margin: 0 auto;
+
+	&--main {
+		padding: 0 15px;
+		max-width: 1230px;
+	}
+}
+
+.text {
+	&-container {
+		&-480 {
+			margin: 0 auto;
+			max-width: 480px;
+		}
+
+		&-900 {
+			margin: 0 auto;
+			max-width: 900px;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+	flex: 1 0 0;
+
+	&--vcenter {
+		align-items: center;
+	}
+
+	&--center {
+		align-items: center;
+		justify-content: center;
+	}
+
+	&--hcenter {
+		justify-content: center;
+	}
+
+	&--hend {
+		justify-content: flex-end;
+	}
+}
+
+.gutter {
+	&-60 {
+		margin-right: -30px;
+		margin-left: -30px;
+
+		>[class*="col-"] {
+			padding-right: 30px;
+			padding-left: 30px;
+		}
+	}
+}
