@@ -27,6 +27,7 @@ $media-expressions: (
 /* Import partial files */
 @import 'vendors/include-media';
 @import 'vendors/bootstrap/stylesheets/zillable-bootstrap';
+@import 'vendors/lightgallery';
 @import 'vendors/animate';
 @import 'vendors/icomoon';
 
@@ -45,3 +46,4 @@ $media-expressions: (
 /* Modules */
 @import 'modules/nav';
 @import 'modules/banner';
+@import 'modules/overlapped-box';

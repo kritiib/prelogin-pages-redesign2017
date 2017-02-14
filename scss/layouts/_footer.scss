@@ -1,0 +1,46 @@
+.footer {
+	&--is-sticky {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		color: $color-white;
+	}
+
+	&__col {
+		@include media(">smart-phone") {
+			&--sm {
+				width: 35%;
+			}
+
+			&--lg {
+				width: 65%;
+			}
+		}
+
+		&--widget {
+			h4 {
+				color: $color-green;
+				font-size: 1.60rem;
+			}
+
+			li {
+				&:not(:last-of-type) {
+					margin-bottom: 7px;
+				}
+
+				a {
+					display: block;
+					color: $color-white;
+					font-size: 0.8rem;
+					line-height: 1.25rem;
+
+					&:hover {
+						color: $color-green;
+					}
+				}
+			}
+		}
+	}
+}

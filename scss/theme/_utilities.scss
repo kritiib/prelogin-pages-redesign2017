@@ -67,11 +67,33 @@
 		line-height: 2.938rem;
 	}
 
+	&--lg {
+		font-size: 1.75rem;
+	}
+
 	&--white {
 		background: {
 			color: $color-white;
 		}
 		color: $color-black;
+	}
+
+	&--picto {
+		display: inline-block;
+		margin: 0 0 45px;
+		font-size: 4rem;
+	}
+
+	&-arrow-pointer {
+		opacity: 0;
+	    display: block;
+	    margin: 15px auto 0;
+	    max-width: 30px;
+	    font-size: 1.75rem;
+	    text-align: center;
+	    transform: translate3d(-10px, 0px, 0);
+	    backface-visibility: hidden;
+	    transition: all ease 0.75s;
 	}
 }
 
@@ -86,6 +108,10 @@
 
 	&-top50 {
 		margin-top: 50px;
+	}
+
+	&-top80 {
+		margin-top: 80px;
 	}
 
 	&-btm25 {
@@ -135,5 +161,29 @@
 
 	&--gray9d {
 		color: $color-gray9d;
+	}
+
+	&--blue {
+		color: $color-blue;
+	}
+}
+
+.video-play {
+	&:hover {
+		opacity: 0.75;
+		color: $color-blue;
+	}
+}
+
+.bkg {
+	&--green-dark {
+		background-color: $color-green-dark;
+		* {
+			color: $color-white;
+		}
+	}
+
+	&--brown {
+		background-color: $color-brown;
 	}
 }

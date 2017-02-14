@@ -1,4 +1,6 @@
 .header {
+	transition: all ease 0.35s;
+
 	&--primary {
 		padding: 10px 0;
 	}
@@ -14,5 +16,12 @@
 				color: transparent;
 			}
 		}
+	}
+
+	&.sticky-enabled {
+		background: {
+			color: $color-brown;
+		}
+		transition: all linear 0.5s;
 	}
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Zillable : Get things Faster</title>
+    <title>Zillable :: Home Template</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
@@ -25,7 +25,7 @@
 
     <div class="site-wrapper">
 
-    <header id="masthead" class="header header--primary header--is-sticky" role="banner">
+    <header id="masthead" class="header header--primary header--is-sticky animated fadeInDown" data-sticky="true" data-wow-duration="0.25s" data-wow-delay="0.5s" role="banner">
       <div class="header__row">
         <div class="icontainer icontainer--main">
 
@@ -90,59 +90,62 @@
           <div class="icontainer icontainer--main">
 
             <div class="banner__caption">
-              <span class="banner__title title--lg"><strong>Achieve More. Innovate Faster.</strong></span>
-              <h5><strong>All-in-one collaboration and innovation app to rocket you forward.</strong></h5>
-              <a href="" class="video-play js-lightbox gap-btm25"><i class="icon icon-play icon--md icon--white"></i><span>Watch how it works</span></a>
-              <a href="" class="btn btn--lg btn--green gap-top25">Create a Collaboration network</a>
+              <span class="banner__title title--lg wow slideInLeft"><strong>Achieve More. Innovate Faster.</strong></span>
+              <h5 class="wow slideInRight"><strong>All-in-one collaboration and innovation app to rocket you forward.</strong></h5>
+              <div class="lightbox__holder wow slideInDown">
+                <a href="https://www.youtube.com/watch?v=hT_8CiLw85w" class="video-play color--blue lightbox-play gap-btm25"><i class="icon icon-play icon--md icon--white"></i><span>Watch how it works</span></a>
+              </div>
+              <a href="" class="btn btn--lg btn--green gap-top25 wow slideInUp">Create a Collaboration network</a>
             </div>
 
           </div>
           <div class="scroll-to-section comp--abs">
-            <a href="" class="js-scroller"><i class="icon icon-mouse animated infinite slideOutUp"></i></a>
+            <a href="" class="js-scroller" data-scroll-target="block--collaborate"><i class="icon icon-mouse animated infinite slideOutUp"></i></a>
             <span>Scroll to see more info</span>
           </div>
         </div>
       </section>
 
-      <section class="block block--collaborate block-gap--lg" data-bkg="true" style="background-image: url(images/pattern-01.png);">
+      <section class="block block--collaborate block-gap--lg wow fadeIn" data-bkg="true" style="background-image: url(images/pattern-01.png);" data-wow-duration="1s" data-wow-delay="0.25s">
         <div class="banner__row">
           <div class="icontainer icontainer--main">
 
-            <header class="block__header text-center text-container-900">
+            <header class="block__header text-center text-container-900 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
               <span class="block__title color--green title--md title--uc">A People-Focused Collaboration <br/> and Innovation Suite</span>
               <p><strong>Stop switching apps and deploy a suite of collaboration and innovation tools for your most demanding projects. Shift from document-focused apps to a people-focused network that solves real business challenges and accelerates innovation, delivering massive value from day one.</strong></p>
             </header>
 
             <div class="block__body gap-top50">
 
-              <div class="clearfix no-gutter flex flex--stretch">
-                <div class="col-sm-6 col-xs-12 flex__col js-moving-col" data-order="1">
-                  <figure class="block__picture block__picture--responsive">
-                    <img alt="" src="images/featured-img01.jpg" />
-                  </figure>
-                  <div class="block__content">
-                    <span class="title--lg color--green title--uc"><strong>Collaborate</strong></span>
-                    <h5 class="color--gray9d">Get Work done.</h5>
-                    <ul class="feature-list gap-top20">
-                      <li>
-                        <span class="feature-list__title">Chat</span>
-                        <span class="feature-list__value">Be productive and transparent.</span>
-                      </li>
-                      <li>
-                        <span class="feature-list__title">Board</span>
-                        <span class="feature-list__value">Visually collaborate and manage.</span>
-                      </li>
-                      <li>
-                        <span class="feature-list__title">Notebook</span>
-                        <span class="feature-list__value">Organise and remember.</span>
-                      </li>
-                    </ul>
-                  </div>
+              <div class="clearfix no-gutter flex flex--stretch row-overlapped">
+                <div class="col-sm-12 col-xs-12 flex__col col-overlapped col-overlapped--content js-moving-col" data-order="1">
+                  <a href="" class="overlapped__card">
+                    <figure class="block__picture block__picture--responsive">
+                      <img alt="" src="images/featured-img01.jpg" />
+                    </figure>
+                    <div class="block__content">
+                      <span class="title--lg color--green title--uc"><strong>Collaborate</strong></span>
+                      <h5 class="color--gray9d">Get Work done.</h5>
+                      <ul class="feature-list gap-top20">
+                        <li>
+                          <span class="feature-list__title">Chat</span>
+                          <span class="feature-list__value">Be productive and transparent.</span>
+                        </li>
+                        <li>
+                          <span class="feature-list__title">Board</span>
+                          <span class="feature-list__value">Visually collaborate and manage.</span>
+                        </li>
+                        <li>
+                          <span class="feature-list__title">Notebook</span>
+                          <span class="feature-list__value">Organise and remember.</span>
+                        </li>
+                      </ul>
+                      <i class="icon icon-arrow-pointer"></i>
+                    </div>
+                  </a>
                 </div>
-                <div class="col-sm-6 col-xs-12 flex__col js-moving-col" data-order="2">
-                  <figure class="block__picture block__picture--responsive">
-                    <img alt="" src="images/featured-img02.jpg" />
-                  </figure>
+                <div class="col-sm-12 col-xs-12 flex__col col-overlapped col-overlapped--bkg js-moving-col" data-order="2">
+                  <figure class="overlapped__card" data-bkg="true" style="background-image: url(images/featured-img02.jpg);"></figure>
                 </div>
               </div>
 
@@ -156,30 +159,45 @@
         <div class="banner__row">
           <div class="icontainer icontainer--main">
 
-            <header class="block__header text-center text-container-900">
+            <header class="block__header text-center text-container-900 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
               <h3 class="block__title title--uc"><strong>Innovate</strong></h3>
               <h5 class="color--gray9d">Crowdsource and drive innovation.</h5>
             </header>
 
-            <div class="block__body gap-top50">
+            <div class="block__body gap-top80">
 
-              <div class="clearfix gutter-60 flex flex--vstart">
-                <div class="col-sm-4 col-xs-12 flex__col">
-                  <div class="block__body">
-                    <h4><strong>Ideate</strong></h4>
-                    <p>Accelerate innovation and improvements.</p>
+              <div class="clearfix gutter-60 flex flex--hcenter">
+                <div class="col-sm-4 col-xs-12 col--innovate flex__col flex__col--eqht wow slideInUp" data-wow-duration="1s" data-wow-delay="0.15s">
+                  <div class="block__body bkg--green-dark">
+                    <a href="">
+                      <i class="icon icon--lg icon--picto icon-idea"></i>
+                      <h4><strong>Ideate</strong></h4>
+                      <p>Accelerate innovation and <br/> improvements.</p>
+                      <span class="article__moreLink">Learn More</span>
+                      <i class="icon icon-arrow-pointer"></i>
+                    </a>
                   </div>
                 </div>
-                <div class="col-sm-4 col-xs-12 flex__col">
-                  <div class="block__body">
-                    <h4><strong>Map</strong></h4>
-                    <p>Visually see connected minds and skills.</p>
+                <div class="col-sm-4 col-xs-12 col--innovate flex__col flex__col--eqht wow slideInUp" data-wow-duration="1s" data-wow-delay="0.35s">
+                  <div class="block__body bkg--green-dark">
+                    <a href="">
+                      <i class="icon icon--lg icon--picto icon-idea"></i>
+                      <h4><strong>Ideate</strong></h4>
+                      <p>Accelerate innovation and <br/> improvements.</p>
+                      <span class="article__moreLink">Learn More</span>
+                      <i class="icon icon-arrow-pointer"></i>
+                    </a>
                   </div>
                 </div>
-                <div class="col-sm-4 col-xs-12 flex__col">
-                  <div class="block__body">
-                    <h4><strong>Insights</strong></h4>
-                    <p>Get actionable insights for data-driven goals.</p>
+                <div class="col-sm-4 col-xs-12 col--innovate flex__col flex__col--eqht wow slideInUp" data-wow-duration="1s" data-wow-delay="0.55s">
+                  <div class="block__body bkg--green-dark">
+                    <a href="">
+                      <i class="icon icon--lg icon--picto icon-idea"></i>
+                      <h4><strong>Ideate</strong></h4>
+                      <p>Accelerate innovation and <br/> improvements.</p>
+                      <span class="article__moreLink">Learn More</span>
+                      <i class="icon icon-arrow-pointer"></i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -190,26 +208,28 @@
         </div>
       </section>
 
-      <section class="block block--enterprise block-gap--lg">
+      <section class="block block--is-inverse block--enterprise block-gap--lg">
         <div class="banner__row">
           <div class="icontainer icontainer--main">
 
             <div class="block__body">
 
-              <div class="clearfix no-gutter flex flex--stretch">
-                <div class="col-sm-6 col-xs-12 flex__col js-moving-col" data-order="2">
-                  <figure class="block__picture block__picture--responsive">
-                    <img alt="" src="images/featured-img03.jpg" />
-                  </figure>
+              <div class="clearfix no-gutter flex flex--stretch row-overlapped">
+                <div class="col-sm-6 col-xs-12 col-overlapped col-overlapped--content js-moving-col" data-order="1">
+                  <a href="" class="overlapped__card">
+                    <div class="block__content">
+                      <span class="title--lg title--uc"><strong>Enterprise</strong></span>
+                      <p>Scale your collaboration and innovation network with categories, groups, security, and compliance, configurable down to an individual.</p>
+                      <i class="icon icon-arrow-pointer"></i>
+                    </div>
+                    <figure class="block__picture block__picture--responsive">
+                      <img alt="" src="images/featured-img01.jpg" />
+                    </figure>
+                  </a>
                 </div>
 
-                <div class="col-sm-6 col-xs-12 flex__col js-moving-col" data-order="1">
-                  <div class="block__content">
-                    <span class="title--lg title--uc"><strong>Enterprise</strong></span>
-                    <p>Scale your collaboration and innovation network with categories, groups, security, and compliance, configurable down to an individual.</p>
-                  </div>
-                  <figure class="block__picture block__picture--responsive">
-                    <img alt="" src="images/featured-img01.jpg" />
+                <div class="col-sm-6 col-xs-12 flex__col col-overlapped col-overlapped--bkg js-moving-col" data-order="2">
+                  <figure class="overlapped__card" data-bkg="true" style="background-image: url(images/featured-img03.jpg);">
                   </figure>
                 </div>                
               </div>
@@ -220,59 +240,139 @@
         </div>
       </section>
 
-      <section class="block block--signup block-gap--md">
-        <div class="banner__row">
-          <div class="icontainer icontainer--main">
+      <section class="block block--pattern">
+        <div class="icontainer icontainer--main" data-bkg="true" style="background-image: url(images/pattern-02.png);">
+          <section class="block block--signup block-gap--md">
+            <div class="banner__row">
+              <header class="block__header text-center text-container-480 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                <span class="block__title title--md">Zillable is free to use forever.</span>
+                <a href="" class="btn btn--signup btn--green gap-top40 gap-btm25">Sign up for free</a>
+                <p><strong>You can easily upgrade to our paid plans, <br/>which offers more features and controls.</strong></p>
+              </header>
+            </div>
+          </section>
 
-            <header class="block__header text-center text-container-480">
-              <span class="block__title title--md">Zillable is free to use forever.</span>
-              <a href="" class="btn btn--signup btn--green gap-top40 gap-btm25">Sign up for free</a>
-              <p><strong>You can easily upgrade to our paid plans, <br/>which offers more features and controls.</strong></p>
-            </header>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="block block--feature block-gap--lg">
-        <div class="banner__row">
-          <div class="icontainer icontainer--main">
-
-            <div class="clearfix gutter-60 flex flex--vstart">
-                <div class="col-sm-4 col-xs-12 flex__col">
-                  <figure>
-                    <img alt="" src="images/feature-img01.jpg" />
-                  </figure>
-                  <div class="block__body">
-                    <h4><strong>Product</strong></h4>
-                    <p>Learn more about our integrated platform, designed to meet all your collaboration and innovation needs.</p>
+          <section class="block block--feature block-gap--lg">
+            <div class="banner__row">
+              <div class="clearfix gutter-60 flex flex--vstart">
+                  <div class="col-sm-4 col-xs-12 col--featured flex__col wow slideInUp" data-wow-duration="1s" data-wow-delay="0.15s">
+                    <a href="">
+                      <figure>
+                        <img alt="" src="images/feature-img01.jpg" />
+                      </figure>
+                    <div class="block__body">
+                      <h4><strong>Product</strong></h4>
+                      <p>Learn more about our integrated platform, designed to meet all your collaboration and innovation needs.</p>
+                      <i class="icon icon-arrow-pointer"></i>
+                    </div>
+                    </a>
                   </div>
-                </div>
-                <div class="col-sm-4 col-xs-12 flex__col">
-                  <figure>
-                    <img alt="" src="images/feature-img02.jpg" />
-                  </figure>
-                  <div class="block__body">
-                    <h4><strong>Support</strong></h4>
-                    <p>Help never sleeps. Access Our guides and get started today!</p>
+                  <div class="col-sm-4 col-xs-12 col--featured flex__col wow slideInUp" data-wow-duration="1s" data-wow-delay="0.35s">
+                    <a href="">
+                      <figure>
+                        <img alt="" src="images/feature-img02.jpg" />
+                      </figure>
+                      <div class="block__body">
+                        <h4><strong>Support</strong></h4>
+                        <p>Help never sleeps. Access Our guides and get started today!</p>
+                        <i class="icon icon-arrow-pointer"></i>
+                      </div>
+                    </a>
                   </div>
-                </div>
-                <div class="col-sm-4 col-xs-12 flex__col">
-                  <figure>
-                    <img alt="" src="images/feature-img02.jpg" />
-                  </figure>
-                  <div class="block__body">
-                    <h4><strong>Blog</strong></h4>
-                    <p>Read inspiring articles and get tips for new users.</p>
+                  <div class="col-sm-4 col-xs-12 col--featured flex__col wow slideInUp" data-wow-duration="1s" data-wow-delay="0.55s">
+                    <a href="">
+                      <figure>
+                        <img alt="" src="images/feature-img02.jpg" />
+                      </figure>
+                      <div class="block__body">
+                        <h4><strong>Blog</strong></h4>
+                        <p>Read inspiring articles and get tips for new users.</p>
+                        <i class="icon icon-arrow-pointer"></i>
+                      </div>
+                    </a>
                   </div>
-                </div>
               </div>
-
-          </div>
+            </div>
+          </section>
         </div>
       </section>
 
     </main>
+
+    <footer id="colphon" class="footer footer--primary footer--is-sticky" role="contentinfo">
+      <div class="footer__row">
+        <section class="block block--footer-coverImg">
+          <figure>
+            <img alt="Parallex Image" class="img img-responsive" src="images/parallax-img01.jpg" />
+          </figure>
+        </section>
+
+        <section class="block block-gap--lgx block--footer-list bkg--brown">
+          <div class="icontainer icontainer--main">
+
+            <div class="clearfix gutter-40 flex flex--stretch">
+              <div class="col-sm-5 col-xs-12 footer__col--sm">
+                <div class="text-container-335">
+                  <span class="title--lg"><strong>Together we build better</strong></span>
+                </div>
+              </div>
+
+              <div class="col-sm-7 col-xs-12 footer__col--lg">
+                <div class="clearfix gutter-30 flex flex--stretch">
+
+                  <div class="col-sm-3 col-xs-12 footer__col--widget">
+                    <h4>Zillable</h4>
+                    <ul>
+                      <li><a href="">Product</a></li>
+                      <li><a href="">Pricing</a></li>
+                      <li><a href="">Support</a></li>
+                      <li><a href="">Blog</a></li>
+                      <li><a href="">Log in</a></li>
+                      <li><a href="">Create a network</a></li>
+                      <li><a href="">Find a network</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-sm-3 col-xs-12 footer__col--widget">
+                    <h4>Uses</h4>
+                    <ul>
+                      <li><a href="">For Business</a></li>
+                      <li><a href="">For Good</a></li>
+                      <li><a href="">For Education</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-sm-3 col-xs-12 footer__col--widget">
+                    <h4>Links</h4>
+                    <ul>
+                      <li><a href="">Getting started</a></li>
+                      <li><a href="">Video Guides</a></li>
+                      <li><a href="">Mobile Apps</a></li>
+                      <li><a href="">Integrations</a></li>
+                      <li><a href="">Security Practices</a></li>
+                      <li><a href="">Invite a friend</a></li>
+                      <li><a href="">New to Zillable</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-sm-3 col-xs-12 footer__col--widget">
+                    <h4>Legal</h4>
+                    <ul>
+                      <li><a href="">Terms of Services</a></li>
+                      <li><a href="">Privacy</a></li>
+                      <li><a href="">Copyright</a></li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </footer>
 
     </div><!-- /.#Zillable Structure -->
 
@@ -280,7 +380,16 @@
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="assets/js/smoothscroll.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/lightgallery.min.js"></script>
+    <script src="assets/js/lightgallery-helper.min.js"></script>
+    <script src="assets/js/common-script.js"></script>
+    <script src="assets/js/sticky-header.js"></script>
+    <script src="assets/js/scroll-to-section.js"></script>
+    <script src="assets/js/lightbox-jquery.js"></script>
+    <script src="assets/js/sticky-footer.js"></script>
   </body>
 </html>
