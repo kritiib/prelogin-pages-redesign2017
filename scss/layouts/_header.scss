@@ -2,7 +2,24 @@
 	transition: all ease 0.35s;
 
 	&--primary {
-		padding: 10px 0;
+
+		@include media("<=smart-phone") {
+			padding: 10px 0;
+		}
+		
+		@include media("<=ipad", ">smart-phone") {
+			padding: 5px 0;
+		}
+
+		@include media(">ipad") {
+			padding: 10px 0;
+		}
+
+		@include media("<=smart-phone") {
+			background: {
+				color: $color-brown;
+			}
+		}
 	}
 
 	&--is {
@@ -12,8 +29,10 @@
 			right: 0;
 			left: 0;
 			z-index: $zIndex-higher;
-			background: {
-				color: transparent;
+			@include media(">smart-phone") {
+				background: {
+					color: transparent;
+				}
 			}
 		}
 	}
@@ -23,5 +42,44 @@
 			color: $color-brown;
 		}
 		transition: all linear 0.5s;
+	}
+
+	&__logo {
+		&-col {
+			@include media("<=phone") {
+				width: 130px;
+			}
+
+			@include media("<=smart-phone") {
+				h1 {
+					font-size: 1rem;
+					line-height: 1;
+				}
+
+				a {
+					display: inline-block;
+					line-height: 1;
+				}
+			}
+
+			@include media("<=smart-phone", ">phone") {
+				width: 150px;
+			}
+		}
+	}
+
+	&__nav {
+		&-col {
+			@include media("<=smart-phone") {
+				position: absolute;
+				top: 50%;
+				right: 15px;
+				padding: 0 0;
+				max-width: 35px;
+				min-height: inherit;
+				backface-visibility: hidden;
+				text-align: left;
+			}
+		}
 	}
 }

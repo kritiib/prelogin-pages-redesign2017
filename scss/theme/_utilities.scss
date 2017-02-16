@@ -6,6 +6,10 @@
 	}
 }
 
+.wow {
+	visibility: hidden;
+}
+
 .btn {
 	display: inline-block;
 	vertical-align: middle;
@@ -21,8 +25,27 @@
 	}
 
 	&--lg {
-		padding: 20px 22px;
-		font-size: 1.125rem;
+		min-width: 225px;
+
+		@include media("<=smart-phone") {
+			padding: 12px 20px;
+			font-size: 1rem;
+		}
+
+		@include media("<=ipad", ">smart-phone") {
+			padding: 12px 20px;
+			font-size: 1rem;
+		}
+
+		@include media("<=desktop", ">ipad") {
+			padding: 15px 20px;
+			font-size: 1.05rem;
+		}
+
+		@include media(">laptop") {
+			padding: 20px 22px;
+			font-size: 1.125rem;
+		}
 	}
 
 	&--signup {
@@ -103,15 +126,43 @@
 	}
 
 	&-top40 {
-		margin-top: 30px;
+		@include media("<=smart-phone") {
+			margin-top: 20px;
+		}
+
+		@include media(">smart-phone") {
+			margin-top: 40px;
+		}
 	}
 
 	&-top50 {
-		margin-top: 50px;
+
+		@include media("<=smart-phone") {
+			margin-top: 30px;
+		}
+
+		@include media("<=ipad", ">smart-phone") {
+			margin-top: 40px;
+		}
+
+		@include media(">ipad") {
+			margin-top: 55px;
+		}
 	}
 
 	&-top80 {
-		margin-top: 80px;
+		
+		@include media("<=smart-phone") {
+			margin-top: 40px;
+		}
+
+		@include media("<=ipad", ">smart-phone") {
+			margin-top: 50px;
+		}
+
+		@include media(">ipad") {
+			margin-top: 80px;
+		}
 	}
 
 	&-btm25 {
@@ -123,13 +174,24 @@
 	&--abs {
 		position: absolute;
 		right: 0;
-		bottom: 100px;
 		left: 0;
 		//overflow: hidden;
 		margin: 0 auto;
 		padding: 0 15px;
 		max-width: 180px;
 		text-align: center;
+
+		@include media("<=smart-phone") {
+			bottom: 10px;
+		}
+
+		@include media("<=ipad", ">smart-phone") {
+			bottom: 50px;
+		}
+
+		@include media(">ipad") {
+			bottom: 100px;
+		}
 
 		i {
 			display: inline-block;
@@ -166,6 +228,10 @@
 	&--blue {
 		color: $color-blue;
 	}
+
+	&--white {
+		color: $color-white;
+	}
 }
 
 .video-play {
@@ -176,6 +242,27 @@
 }
 
 .bkg {
+	&--gray {
+		background-color: $color-gray;
+		* {
+			//color: $color-white;
+		}
+	}
+
+	&--whisper {
+		background-color: $color-whisper;
+		* {
+			//color: $color-white;
+		}
+	}
+
+	&--green {
+		background-color: $color-green;
+		* {
+			color: $color-white;
+		}
+	}
+
 	&--green-dark {
 		background-color: $color-green-dark;
 		* {
@@ -183,7 +270,17 @@
 		}
 	}
 
+	&--yellow {
+		background-color: $color-yellow;
+		* {
+			color: $color-white;
+		}
+	}
+
 	&--brown {
 		background-color: $color-brown;
+		* {
+			color: $color-white;
+		}
 	}
 }

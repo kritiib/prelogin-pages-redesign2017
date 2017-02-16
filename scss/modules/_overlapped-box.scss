@@ -6,35 +6,57 @@
 
 .col {
 	&-overlapped {
-		position: relative;
-		overflow: hidden;
-		display: flex;
-		justify-content: flex-start;
-		align-items: stretch;
-	    backface-visibility: hidden;
-	    transform: translateZ(0);
 
-	    &[data-order="1"] {
-			z-index: $zIndex-one;
-			transform: translate3d(0rem,4rem,0);
-		}
+		@include media(">smart-phone") {
+			display: flex;
+			justify-content: flex-start;
+			align-items: stretch;
 
-		&--bkg {
-			position: absolute;
-			right: 0;
-			width: 50%;
-			height: 100%;
-		}
+			&[data-order="1"] {
+				z-index: $zIndex-one;
+				transform: translate3d(0rem,4rem,0);
+			}
 
-		&--content {
-			width: 54.125%;
+			&--bkg {
+				position: absolute;
+				right: 0;
+				width: 50%;
+				height: 100%;
+			}
 
-			.block__content {
-				//padding-bottom: 5rem;
+			&--content {
+				width: 54.125%;
+
+				.block__content {
+					//padding-bottom: 5rem;
+				}
 			}
 		}
 
-		&:hover {
+		@include media("<ipad", ">smart-phone") {
+			&--bkg {
+				width: 65%;
+			}
+		}
+
+		position: relative;
+		overflow: hidden;
+	    backface-visibility: hidden;
+	    transform: translateZ(0);
+
+	    .icon {
+			opacity: 0;
+			display: block;
+			margin: 15px auto 0;
+			max-width: 30px;
+			font-size: 1.75rem;
+			text-align: center;
+			transform: translate3d(-10px, 0px, 0);
+			backface-visibility: hidden;
+			transition: all ease 0.75s;
+		}
+
+	    @include media("<=smart-phone") {
 			.block__content {
 				background: $color-green;
 				transition: all linear 0.35s;
@@ -63,31 +85,66 @@
 			}
 		}
 
-		.icon {
-			opacity: 0;
-			display: block;
-			margin: 15px auto 0;
-			max-width: 30px;
-			font-size: 1.75rem;
-			text-align: center;
-			transform: translate3d(-10px, 0px, 0);
-			backface-visibility: hidden;
-			transition: all ease 0.75s;
+		&:hover {
+			@include media(">smart-phone") {
+				.block__content {
+					background: $color-green;
+					transition: all linear 0.35s;
+				}
+
+				* {
+					color: $color-white !important;
+					transition: all linear 0.35s;
+				}
+
+				.block__picture {
+					img {
+						transform: scale3d(1.125, 1.125, 1.125);
+						transition: all linear 4s;
+					}
+				}
+
+				~ [data-order="2"] [data-bkg="true"] {
+					transform: scale3d(1.125, 1.125, 1.125);
+					transition: all linear 4s;
+				}
+
+				.icon {
+					opacity: 1;
+					transform: translate3d(0px, 0px, 0);
+				}
+			}
 		}
 	}
 }
 
 .overlapped {
 	&__card {
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-		flex: 1 1 0%;
+		@include media(">smart-phone") {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			flex: 1 1 0%;
+		}
+
 		color: $color-black;
 		transition: none;
 
 		&:hover {
 			color: $color-white;
+		}
+
+		@include media("<=smart-phone") {
+			&[data-bkg="true"] {
+				position: relative;
+				overflow: hidden;
+
+				&::before {
+					content: "";
+					display: block;
+					padding-bottom: percentage(522 / 598);
+				}
+			}
 		}
 	}
 }
@@ -104,16 +161,36 @@ figure {
 	&--innovate {
 		.block__body {
 			position: relative;
+			//overflow: hidden;
 			height: 100%;
 
 			 > a {
-				padding-top: 8.5rem;
+			 	display: block;
 				padding-bottom: 3rem;
 				padding-right: 15px;
 				padding-left: 15px;
 				height: 100%;
+				backface-visibility: hidden;
+				transform: translateZ(0);
+				transition: all ease 0.5s;
+
+				@include media("<=smart-phone") {
+					padding-top: 8rem;
+				}
+
+				@include media("<=ipad", ">smart-phone") {
+					padding-top: 5rem;
+				}
+
+				@include media(">ipad") {
+					padding-top: 8.5rem;
+				}
 
 				&:hover {
+					box-shadow: 1px 5px 15px 0 rgba(0,0,0,.22);
+					//transform: scale3d(1.125, 1.125, 1.125);
+					transition: all linear 0.75s;
+
 					.icon-arrow-pointer {
 						opacity: 1;
 						transform: translate3d(0px, 0px, 0);
@@ -146,6 +223,26 @@ figure {
 	}
 
 	&--featured {
+		&-full {
+			display: flex;
+			align-items: center;
+			padding: 20px 2rem;
+			height: 100%;
+			box-shadow: 1px 5px 15px 0 rgba(0,0,0,.22);
+
+			h3 {
+				font-size: 2.75rem;
+
+				&:not(:last-child) {
+					margin-bottom: 1.5rem;
+				}
+			}
+
+			p {
+				color: $color-white;
+			}
+		}
+
 		figure {
 			overflow: hidden;
 			img {
@@ -157,16 +254,32 @@ figure {
 			display: block;
 			height: 100%;
 			transition: all ease 0.35s;
+			color: inherit;
+			backface-visibility: hidden;
+			transform: translateZ(0);
 
 			.icon {
-				margin-right: 0;
-				margin-left: 0;
 				font-size: 1.25rem;
+
+				@include media(">smart-phone") {
+					margin-right: 0;
+					margin-left: 0;
+				}
+
+				.text-center & {
+					margin-right: auto;
+					margin-left: auto;
+				}
 			}
 
 			&:hover {
 				background-color: $color-green;
-				transition: all linear 0.35s;
+				box-shadow: 1px 5px 15px 0 rgba(0,0,0,.22);
+				transition: all linear 0.5s;
+
+				.block--yellow-bkg & {
+					background-color: $color-yellow;
+				}
 
 				* {
 					color: $color-white;

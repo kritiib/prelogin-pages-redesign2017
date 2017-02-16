@@ -1,11 +1,14 @@
 .footer {
 	&--is-sticky {
-		position: fixed;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: 100%;
 		color: $color-white;
+		
+		@include media(">smart-phone") {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+		}
 	}
 
 	&__col {
@@ -20,6 +23,10 @@
 		}
 
 		&--widget {
+			@include media("<=smart-phone", ">phone") {
+				//width: 50%;
+			}
+
 			h4 {
 				color: $color-green;
 				font-size: 1.60rem;
@@ -31,13 +38,19 @@
 				}
 
 				a {
-					display: block;
+					display: inline-block;
 					color: $color-white;
 					font-size: 0.8rem;
 					line-height: 1.25rem;
 
+					@include media("<=smart-phone") {
+						font-size: 0.875rem;
+						line-height: 1.5rem;
+						letter-spacing: 1px;
+					}
+
 					&:hover {
-						color: $color-green;
+						color: $color-graya4;
 					}
 				}
 			}

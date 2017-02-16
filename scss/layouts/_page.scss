@@ -1,3 +1,9 @@
+.site-wrapper {
+	@include media("<=smart-phone") {
+		margin-bottom: 0 !important;
+	}
+}
+
 main {
 	position: relative;
 	z-index: $zIndex-one;
@@ -7,25 +13,125 @@ main {
 }
 
 .block {
+	@include media("<=smart-phone") {
+		text-align: center;
+
+		&:not(:last-of-type) {
+			padding-bottom: 0;
+		}
+	}
+
+	&--footer-coverImg {
+		figure {
+			.img-responsive {
+				position: relative;
+				top: 0%;
+				left: 50%;
+				width: auto;
+				max-width: none;
+				max-height: none;
+				transform: translateX(-50%);
+				backface-visibility: hidden;
+
+				@include media("<=phone") {
+					height: 250px;
+				}
+
+				@include media("<=smart-phone", ">phone") {
+					height: 300px;
+				}
+			}
+		}
+	}
+
 	&-gap {
+		&--sm {
+			
+			@include media("<=smart-phone") {
+				padding: 2.5rem 0;	
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				padding: 2rem 0;	
+			}
+
+			@include media("<=laptop", ">ipad") {
+				padding: 2.5rem 0;	
+			}
+
+			@include media(">laptop") {
+				padding: 3.125rem 0;	
+			}
+		}
+
 		&--md {
-			padding: 3.125rem 0;
+			
+			@include media("<=smart-phone") {
+				padding: 2.5rem 0;	
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				padding: 2.9rem 0;	
+			}
+
+			@include media("<=laptop", ">ipad") {
+				padding: 3.25rem 0;	
+			}
+
+			@include media(">laptop") {
+				padding: 3.750rem 0;	
+			}
 		}
 
 		&--lg {
-			padding: 90px 0;
+			@include media("<=smart-phone") {
+				padding: 2.5rem 0;	
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				padding: 3rem 0;	
+			}
+
+			@include media("<=laptop", ">ipad") {
+				padding: 4.5rem 0;
+			}
+
+			@include media(">laptop") {
+				padding: 5.625rem 0;	
+			}
 		}
 
 		&--lgx {
-			padding: 6.563rem 0;
+			@include media("<=smart-phone") {
+				padding: 2.5rem 0;	
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				padding: 3rem 0;	
+			}
+
+			@include media("<=laptop", ">ipad") {
+				padding: 4.5rem 0;
+			}
+
+			@include media(">laptop") {
+				padding: 6.563rem 0;	
+			}
 		}
 	}
 
 	&__content {
-		padding: 45px 45px;
 		background: $color-white;
 		transition: all ease 0.75s;
 		// box-shadow: 0 0 11px -5px rgba(0, 0, 0, 0.75);
+
+		@include media("<=smart-phone") {
+			padding: 25px 15px;
+		}
+
+		@include media(">smart-phone") {
+			padding: 45px 45px;
+		}
 
 		.title--lg {
 			margin-bottom: 5px;
@@ -54,7 +160,30 @@ main {
 
 	&--feature {
 		.block__body {
-			padding: 40px 40px;
+			@include media("<=smart-phone") {
+				padding: 20px 15px;
+				background: {
+					color: $color-green;
+				}
+
+				> * {
+					color: $color-white;
+				}
+
+				.icon-arrow-pointer {
+					opacity: 1;
+				}
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				padding: 25px 15px;
+			}
+
+			@include media(">ipad") {
+				//padding: 40px 40px;
+				padding: 30px 30px;
+			}
+
 			h4 {
 				margin-bottom: 20px;
 			}
@@ -62,26 +191,51 @@ main {
 	}
 
 	&--is-inverse {
+		&.block--enterprise {
+			@include media("<=ipad", ">smart-phone") {
+				padding-bottom: 5rem;
+			}
+
+			@include media("<=laptop", ">ipad") {
+				padding-bottom: 8rem;
+			}
+		}
+
 		.col-overlapped[data-order="1"],
 		[data-order="1"] {
-			order: 2;
-			transform: translate3d(0rem, 0rem, 0);
+			@include media(">smart-phone") {
+				order: 2;
+				transform: translate3d(0rem, 0rem, 0);
+			}
 		}
 
 		.col-overlapped[data-order="2"],
 		.col-overlapped[data-order="1"][data-order="2"] {
-			order: 1;
-			transform: translate3d(0rem, 4rem, 0);
+			@include media(">smart-phone") {
+				order: 1;
+				transform: translate3d(0rem, 4rem, 0);
+			}
 		}
 
 		.row-overlapped {
-			justify-content: flex-end;
+			@include media(">smart-phone") {
+				justify-content: flex-end;
+			}
 		}
 
 		.col-overlapped--bkg {
-			right: auto;
-			left: 0;
+			@include media(">smart-phone") {
+				right: auto;
+				left: 0;
+			}
 		}
+	}
+
+	&--innovate,
+	&--signup {
+		// @include media("<=smart-phone") {
+		// 	padding-bottom: 0;
+		// }
 	}
 
 	&--pattern {
@@ -97,11 +251,19 @@ main {
 .feature {
 	&-list {
 		li {
-			display: flex;
-			align-items: center;
+			@include media(">smart-phone") {
+				display: flex;
+				align-items: center;
+			}
 
 			&:not(:last-of-type) {
-				margin-bottom: 25px;
+				@include media(">smart-phone") {
+					margin-bottom: 25px;
+				}
+
+				@include media("<=smart-phone") {
+					margin-bottom: 15px;
+				}
 			}
 
 			.feature-list {
@@ -110,6 +272,16 @@ main {
 					font-weight: $fw-bold;
 					text-transform: $uc;
 					width: 30%;
+
+					@include media("<=smart-phone", ">phone") {
+						display: inline-block;
+						text-align: left;
+					}
+
+					@include media("<=phone") {
+						display: block;
+						width: 100%;
+					}
 				}
 
 				&__value {
@@ -117,8 +289,25 @@ main {
 					font-size: 0.875rem;
 					font-weight: $fw-bold;
 					width: 70%;
+
+					@include media("<=smart-phone", ">phone") {
+						display: inline-block;
+						margin-left: -5px;
+						text-align: right;
+					}
+
+					@include media("<=phone") {
+						display: block;
+						width: 100%;
+					}
 				}
 			}
 		}
+	}
+}
+
+.membership {
+	&__info {
+		font-size: 0.938rem;
 	}
 }

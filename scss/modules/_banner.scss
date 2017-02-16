@@ -1,19 +1,61 @@
 .banner {
-	&--flex {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		//justify-content: center;
-		height: calc(100vh);
+	&--overlay {
+		position: relative;
+		&::after {
+			position: absolute;
+		    content: '';
+		    top: 0;
+		    left: 0;
+		    z-index: $zIndex-zero;
+			background-image: -webkit-linear-gradient(top, rgba($color-blue58,0.2) 20%, $color-blue1c 100%);
+		    background-image: -o-linear-gradient(top, rgba($color-blue58,0.2) 20%, $color-blue1c 100%);
+		    background-image: linear-gradient(to bottom, rgba($color-blue58,0.2) 20%, $color-blue1c 100%);
+		    background-repeat: repeat-x;
+		    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00586c79', endColorstr='#1c232c', GradientType=0);
+		    width: 100%;
+		    height: 100%;		    
+		}
 
-		> div {
-			width: 100%;
-			max-width: 100%;
+		.banner {
+			&__caption {
+				position: relative;
+				z-index: $zIndex-one;
+			}
 		}
 	}
 
-	&--hv {
+	&--flex {
+		display: flex;
+		flex-direction: row;
+		//justify-content: center;
 
+		&-vc {
+			align-items: center;
+			> div {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+
+		&-vhc {
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			> div {
+				//width: 100%;
+				max-width: 100%;
+			}
+		}
+	}
+
+	&--vh {
+		&-full {
+			height: calc(100vh);
+		}
+
+		&-md {
+			height: calc(81.15vh);
+		}
 	}
 
 	&--hero {
@@ -33,15 +75,52 @@
 			max-height: none;
 			transform: translate3d(-50%, -50%, 0);
 		}
+
+		@include media("<=smart-phone") {
+			text-align: center;
+		}
 	}
 
 	&__caption {
-		max-width: 420px;
 		color: $color-white;
+
+		@include media(">smart-phone") {
+			&--sm {
+				max-width: 420px;
+			}
+
+			&--md {
+				max-width: 620px;
+			}
+		}
 
 		.title--lg {
 			&:not(:last-child) {
-				margin-bottom: 25px;
+				@include media("<=smart-phone") {
+					margin-bottom: 15px;
+				}
+
+				@include media(">smart-phone") {
+					margin-bottom: 25px;
+				}
+			}
+		}
+
+		.banner {
+			&__title {
+				&-sub {
+
+				}
+			}
+
+			&__desc {
+				@include media("<=smart-phone") {
+					margin-bottom: 0.938rem;
+				}
+
+				@include media(">smart-phone") {
+					margin-bottom: 1.575rem;
+				}
 			}
 		}
 	}
