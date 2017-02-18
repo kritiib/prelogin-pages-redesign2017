@@ -97,11 +97,11 @@
 		.title--lg {
 			&:not(:last-child) {
 				@include media("<=smart-phone") {
-					margin-bottom: 15px;
+					margin-bottom: 0.938rem;
 				}
 
 				@include media(">smart-phone") {
-					margin-bottom: 25px;
+					margin-bottom: 1.575rem;
 				}
 			}
 		}

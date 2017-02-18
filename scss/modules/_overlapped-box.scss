@@ -58,8 +58,15 @@
 
 	    @include media("<=smart-phone") {
 			.block__content {
-				background: $color-green;
 				transition: all linear 0.35s;
+
+				.block-theme--green & {
+					background: $color-green;
+				}
+
+				.block-theme--yellow & {
+					background: $color-yellow;
+				}
 			}
 
 			* {
@@ -74,10 +81,10 @@
 				}
 			}
 
-			~ [data-order="2"] [data-bkg="true"] {
-				transform: scale3d(1.125, 1.125, 1.125);
-				transition: all linear 4s;
-			}
+			// ~ [data-order="2"] [data-bkg="true"] {
+			// 	transform: scale3d(1.125, 1.125, 1.125);
+			// 	transition: all linear 4s;
+			// }
 
 			.icon {
 				opacity: 1;
@@ -86,10 +93,18 @@
 		}
 
 		&:hover {
+
 			@include media(">smart-phone") {
 				.block__content {
-					background: $color-green;
 					transition: all linear 0.35s;
+
+					.block-theme--green & {
+						background: $color-green;
+					}
+
+					.block-theme--yellow & {
+						background: $color-yellow;
+					}
 				}
 
 				* {
@@ -104,6 +119,11 @@
 					}
 				}
 
+				~ [data-order="2"] {
+					box-shadow: 1px 5px 15px 0 rgba(0,0,0,0.22);
+					transition: all linear 0.75s;
+				}
+
 				~ [data-order="2"] [data-bkg="true"] {
 					transform: scale3d(1.125, 1.125, 1.125);
 					transition: all linear 4s;
@@ -113,6 +133,13 @@
 					opacity: 1;
 					transform: translate3d(0px, 0px, 0);
 				}
+			}
+		}
+
+		&--content {
+			&:hover {
+				box-shadow: 1px 5px 15px 0 rgba(0,0,0,0.22);
+				transition: all linear 0.75s;
 			}
 		}
 	}
@@ -222,16 +249,70 @@ figure {
 		}
 	}
 
+	&--services {
+		//display: flex;
+		//align-items: center;
+
+		.col {
+			&__content {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				padding: 1.25rem 1.5rem 1.75rem;
+				width: 100%;
+				min-height: 13.875rem;
+				border: 1px solid $color-graye5;
+				font-weight: bold;
+				text-align: center;
+
+				&:not(.last-col) {
+					margin-bottom: 10px;
+				}
+
+				h6 {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
 	&--featured {
+		@include media("<=desktop", ">smart-phone") {
+			min-height: 22.125rem;
+		}
+
+		@include media(">desktop") {
+			min-height: 28.125rem;
+		}
+
 		&-full {
 			display: flex;
 			align-items: center;
-			padding: 20px 2rem;
 			height: 100%;
-			box-shadow: 1px 5px 15px 0 rgba(0,0,0,.22);
+			transition: all ease 0.35s;
+
+			@include media(">laptop") {
+				padding: 20px 2rem;
+			}
+
+			&:hover {
+				box-shadow: 1px 5px 15px 0 rgba(0,0,0,.22);
+				transition: all linear 0.75s;
+			}
 
 			h3 {
-				font-size: 2.75rem;
+				@include media("<=ipad", ">smart-phone") {
+					font-size: 2rem;
+				}
+
+				@include media("<desktop", ">ipad") {
+					font-size: 2.25rem;
+				}
+
+				@include media(">desktop") {
+					font-size: 2.75rem;
+				}
 
 				&:not(:last-child) {
 					margin-bottom: 1.5rem;
@@ -273,12 +354,16 @@ figure {
 			}
 
 			&:hover {
-				background-color: $color-green;
+				//background-color: $color-green;
 				box-shadow: 1px 5px 15px 0 rgba(0,0,0,.22);
 				transition: all linear 0.5s;
 
-				.block--yellow-bkg & {
+				.block-theme--yellow & {
 					background-color: $color-yellow;
+				}
+
+				.block-theme--green & {
+					background-color: $color-green;
 				}
 
 				* {

@@ -7,11 +7,11 @@
 			padding: 10px 0;
 		}
 		
-		@include media("<=ipad", ">smart-phone") {
+		@include media("<=desktop", ">smart-phone") {
 			padding: 5px 0;
 		}
 
-		@include media(">ipad") {
+		@include media(">desktop") {
 			padding: 10px 0;
 		}
 

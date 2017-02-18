@@ -10,6 +10,10 @@ main {
 	background: {
 		color: $color-white;
 	}
+
+	@include media("<=smart-phone") {
+		padding-top: 50px;
+	}
 }
 
 .block {
@@ -17,7 +21,50 @@ main {
 		text-align: center;
 
 		&:not(:last-of-type) {
-			padding-bottom: 0;
+			//padding-bottom: 0;
+		}
+	}
+
+	&--flex {
+		display: flex;
+		flex-direction: row;
+		//justify-content: center;
+
+		&-vc {
+			align-items: center;
+			> div {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+
+		&-vhc {
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			> div {
+				//width: 100%;
+				max-width: 100%;
+			}
+		}
+	}
+
+	&--stacked {
+		position: relative;
+
+		&-h {
+			&590 {
+				&::before {
+					overflow: hidden;
+					content: "";
+					display: block;
+					padding-bottom: percentage(590 / 1600);
+				}
+			}
+		}
+
+		> div {
+			height: 100%;
 		}
 	}
 
@@ -55,11 +102,11 @@ main {
 				padding: 2rem 0;	
 			}
 
-			@include media("<=laptop", ">ipad") {
-				padding: 2.5rem 0;	
+			@include media("<=desktop", ">ipad") {
+				padding: 3rem 0;	
 			}
 
-			@include media(">laptop") {
+			@include media(">desktop") {
 				padding: 3.125rem 0;	
 			}
 		}
@@ -74,11 +121,11 @@ main {
 				padding: 2.9rem 0;	
 			}
 
-			@include media("<=laptop", ">ipad") {
+			@include media("<=desktop", ">ipad") {
 				padding: 3.25rem 0;	
 			}
 
-			@include media(">laptop") {
+			@include media(">desktop") {
 				padding: 3.750rem 0;	
 			}
 		}
@@ -92,11 +139,11 @@ main {
 				padding: 3rem 0;	
 			}
 
-			@include media("<=laptop", ">ipad") {
-				padding: 4.5rem 0;
+			@include media("<=desktop", ">ipad") {
+				padding: 3.5rem 0;
 			}
 
-			@include media(">laptop") {
+			@include media(">desktop") {
 				padding: 5.625rem 0;	
 			}
 		}
@@ -110,12 +157,30 @@ main {
 				padding: 3rem 0;	
 			}
 
-			@include media("<=laptop", ">ipad") {
-				padding: 4.5rem 0;
+			@include media("<=desktop", ">ipad") {
+				padding: 3.5rem 0;
 			}
 
-			@include media(">laptop") {
+			@include media(">desktop") {
 				padding: 6.563rem 0;	
+			}
+		}
+
+		&--lgxx {
+			@include media("<=smart-phone") {
+				padding: 4rem 0;	
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				padding: 7rem 0;	
+			}
+
+			@include media("<=desktop", ">ipad") {
+				padding: 8.5rem 0;
+			}
+
+			@include media(">desktop") {
+				padding: 11.250rem 0;	
 			}
 		}
 	}
@@ -161,10 +226,7 @@ main {
 	&--feature {
 		.block__body {
 			@include media("<=smart-phone") {
-				padding: 20px 15px;
-				background: {
-					color: $color-green;
-				}
+				padding: 5rem 15px;
 
 				> * {
 					color: $color-white;
@@ -186,6 +248,20 @@ main {
 
 			h4 {
 				margin-bottom: 20px;
+			}
+		}
+	}
+
+	@include media("<=smart-phone") {
+		&-theme--green {
+			.block__body {
+				background: $color-green;
+			}
+		}
+
+		&-theme--yellow {
+			.block__body {
+				background: $color-yellow;
 			}
 		}
 	}
@@ -244,6 +320,17 @@ main {
 				position: top right;
 				size: contain;
 			}
+		}
+	}
+
+	&--services {
+		padding-bottom: 5.75rem;
+	}
+
+	h3.block__title {
+		&--md {
+			margin-bottom: 1.5rem;
+			font-size: 2.5rem;
 		}
 	}
 }
@@ -309,5 +396,175 @@ main {
 .membership {
 	&__info {
 		font-size: 0.938rem;
+	}
+}
+
+/* iCard block style rules */
+.h-stretch {
+	height: 100%;
+}
+
+.icard {
+	line-height: 1.75rem;
+
+	&--abs {
+		position: absolute;
+
+		&-topLeft {
+			top: 0;
+		}
+	}
+
+	&--sm {
+		padding: 6rem 3.438rem;
+		//width: 100%;
+		max-width: 480px;
+	}
+
+	&--stacked {
+		box-shadow: 20px 20px 0px transparentize($color-green26, 0);
+
+		&-topoffset {
+			transform: translate3d(0rem, -3.438rem, 0);
+		}
+	}
+
+	h3 {
+		&:not(:last-child) {
+			margin-bottom: 1.35rem;
+		}
+	}
+
+	ul {
+		margin-top: 1.25rem;
+
+		&:not(:last-child) {
+			margin-bottom: 1.25rem;
+		}
+
+		li {
+			//padding-left: 35px;
+			list-style: disc;
+			list-style-position: inside;
+		}
+	}
+}
+
+/* Donut recipe */
+.donut {
+	&__list {
+		@include media("<=smart-phone") {
+			display: flex;
+			flex-wrap: wrap;
+
+			li {
+				width: 33.33333333%;
+			}
+		}
+
+		@include media("<=570px") {
+			li {
+				width: 50%;
+			}
+		}
+
+		.donut {
+			&__item {
+				display: flex;
+				padding-right: 5px;
+				padding-left: 5px;
+
+				@include media(">smart-phone") {
+					width: 33.3333333%;
+				}
+
+				&:not(.last-col) {
+					margin-bottom: 10px;
+				}
+
+				&--zillable {
+					h5 {
+						color: $color-zil;
+					}
+				}
+
+				&--twitter {
+					h5 {
+						color: $color-tw;
+					}
+				}
+
+				&--facebook {
+					h5 {
+						color: $color-fb;
+					}
+				}
+
+				&--snapchat {
+					h5 {
+						color: $color-schat;
+					}
+				}
+
+				&--youtube {
+					h5 {
+						color: $color-yt;
+					}
+				}
+
+				&--linkedin {
+					h5 {
+						color: $color-lkdn;
+					}
+				}
+
+				&--pinterest {
+					h5 {
+						color: $color-pin;
+					}
+				}
+
+				&--airbnb {
+					h5 {
+						color: $color-abn;
+					}
+				}
+
+				&--uber {
+					h5 {
+						color: $color-ub;
+					}
+				}
+			}
+
+			&__content {
+				padding: 1.25rem 1.5rem 1.75rem;
+				width: 100%;
+				border: 1px solid $color-graye5;
+				text-align: center;
+
+				h5 {
+					margin-bottom: 0.35rem;
+				}
+
+				p {
+					font-size: 0.875rem;
+					font-weight: 600;
+					line-height: 1.25rem;
+				}
+			}
+		}
+	}
+
+	&__picture-wrap {
+		@include media(">smart-phone") {
+			position: absolute;
+			top: -6.75rem;
+
+			img {
+				width: auto;
+				max-width: inherit;
+			}
+		}
 	}
 }

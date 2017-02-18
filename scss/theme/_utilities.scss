@@ -7,7 +7,12 @@
 }
 
 .wow {
+	//opacity: 0;
 	visibility: hidden;
+}
+
+.animated {
+	//opacity: 1;
 }
 
 .btn {
@@ -38,11 +43,11 @@
 		}
 
 		@include media("<=desktop", ">ipad") {
-			padding: 15px 20px;
+			padding: 13px 20px;
 			font-size: 1.05rem;
 		}
 
-		@include media(">laptop") {
+		@include media(">desktop") {
 			padding: 20px 22px;
 			font-size: 1.125rem;
 		}
@@ -64,6 +69,64 @@
 			background-color: transparent;
 			border-color: $color-green;
 			color: $color-green;
+		}
+	}
+
+	&--white {
+		background: {
+			color: $color-white;
+		}
+
+		.bkg--green & {
+			color: $color-green;
+		}
+
+		&:hover {
+			background-color: transparent;
+			border-color: $color-white;
+			color: $color-white;
+		}
+	}
+}
+
+.text {
+	&-link {
+		display: inline-block;
+
+		&--white {
+			color: $color-white;
+
+			&::after {
+				background: {
+					color: $color-white;
+				}
+			}
+		}
+
+		&--sm {
+			font-size: 1rem;
+		}
+
+		&--bordered {
+			position: relative;
+
+			&::after {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				content: "";
+				width: 100%;
+				height: 1px;
+				transform: scale3d(1, 1, 1) translateZ(0);
+				transition: all ease 0.25s;
+			}
+
+			&:hover {
+				&::after {
+					transform: scale3d(0, 0, 0) translateZ(0);
+					transition: all linear 0.35s;
+				}
+			}
 		}
 	}
 }
@@ -123,6 +186,10 @@
 .gap {
 	&-top25 {
 		margin-top: 25px;
+	}
+
+	&-top30 {
+		margin-top: 30px;
 	}
 
 	&-top40 {
@@ -238,6 +305,7 @@
 	&:hover {
 		opacity: 0.75;
 		color: $color-blue;
+		color: inherit;
 	}
 }
 
@@ -258,6 +326,13 @@
 
 	&--green {
 		background-color: $color-green;
+		* {
+			color: $color-white;
+		}
+	}
+
+	&--green-md {
+		background-color: $color-green34;
 		* {
 			color: $color-white;
 		}
