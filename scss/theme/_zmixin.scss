@@ -1,0 +1,17 @@
+// Mixin selection
+
+@mixin selection($bkg, $color) {
+	&::-moz-selection {
+		background: {
+			color: $bkg;
+		};
+		color: $color;
+	}
+
+	&::selection {
+		background: {
+			color: $bkg;
+		};
+		color: $color;
+	}
+}

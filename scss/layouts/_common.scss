@@ -35,9 +35,11 @@ body {
 	-webkit-font-smoothing: antialiased;
 
 	@include media(">smart-phone") {
-		font-size: $fs-base;
+		font-size: $fs-base - 0.125rem;
 	}
 }
+
+@include selection($color-green, $color-white);
 
 * {
 	margin: 0 0;
@@ -69,7 +71,7 @@ img {
 
 a {
 	text-decoration: none;
-	transition: all ease-in-out 0.35s;
+	transition: all ease 0.35s;
 
 	&:hover,
 	&:focus,
@@ -163,6 +165,36 @@ h1, h2, h3, h4, h5, h6 {
 	&--uc {
 		text-transform: $uc;
 	}
+
+	&--md {
+		display: block;
+
+		@include media("<=smart-phone") {
+			font-size: 1.55rem;
+			line-height: 1.5rem;
+		}
+
+		@include media("<=laptop", ">smart-phone") {
+			font-size: 1.75rem;
+			line-height: 2.25rem;
+		}
+
+		@include media(">laptop") {
+			font-size: 2rem;
+			line-height: 2.5rem;
+		}
+
+		&:not(:last-child) {
+
+			@include media("<=smart-phone") {
+				margin-bottom: 25px;
+			}
+
+			@include media(">smart-phone") {
+				margin-bottom: 10px;
+			}
+		}
+	}
 }
 
 h3 {
@@ -186,36 +218,22 @@ h3 {
 	&:not(:last-child) {
 		margin-bottom: 5px;
 	}
-}
 
-.title--md {
-	display: block;
-
-	@include media("<=smart-phone") {
-		font-size: 1.55rem;
-		line-height: 1.5rem;
-	}
-
-	@include media("<=laptop", ">smart-phone") {
-		font-size: 1.75rem;
-		line-height: 2.25rem;
-	}
-
-	@include media(">laptop") {
-		font-size: 2rem;
-		line-height: 2.5rem;
-	}
-
-	&:not(:last-child) {
+	span:not([class*="color-"]) {
+		display: inline-block;
 
 		@include media("<=smart-phone") {
-			margin-bottom: 25px;
+			font-size: 1.5rem;
 		}
 
 		@include media(">smart-phone") {
-			margin-bottom: 10px;
+			font-size: 2rem;
 		}
 	}
+}
+
+.title--md {
+	
 }
 
 h4 {
@@ -246,5 +264,9 @@ h6 {
 		@include media(">smart-phone") {
 			margin-bottom: 1.575rem;
 		}	
+	}
+
+	@include media("<=smart-phone") {
+		line-height: 1.45rem;
 	}
 }

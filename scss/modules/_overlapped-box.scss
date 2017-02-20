@@ -253,6 +253,10 @@ figure {
 		//display: flex;
 		//align-items: center;
 
+		@include media("<=smart-phone") {
+			margin-bottom: 0 !important;
+		}
+
 		.col {
 			&__content {
 				display: flex;
@@ -265,6 +269,14 @@ figure {
 				border: 1px solid $color-graye5;
 				font-weight: bold;
 				text-align: center;
+
+				@include media("<=phone") {
+					min-height: 8rem;
+				}
+
+				@include media("<=smart-phone", ">phone") {
+					
+				}
 
 				&:not(.last-col) {
 					margin-bottom: 10px;
@@ -287,13 +299,16 @@ figure {
 		}
 
 		&-full {
-			display: flex;
-			align-items: center;
 			height: 100%;
 			transition: all ease 0.35s;
 
 			@include media(">laptop") {
 				padding: 20px 2rem;
+			}
+
+			@include media(">smart-phone") {
+				display: flex;
+				align-items: center;
 			}
 
 			&:hover {

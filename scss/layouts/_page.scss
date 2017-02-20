@@ -25,6 +25,41 @@ main {
 		}
 	}
 
+	&__header {
+		&--bordered {
+			@include media(">smart-phone") {
+				padding-left: 6rem;
+			}
+
+			.block__title {
+				position: relative;
+					&::after {
+					position: absolute;
+					top: 50%;
+					right: 0;
+					left: 0;
+					z-index: $zIndex-zero;
+					content: "";
+					background: {
+						color: $color-black;
+					}
+					width: 100%;
+					height: 1px;
+				}
+
+				strong {
+					position: relative;
+					z-index: $zIndex-one;
+					padding-right: 1.25rem;
+					padding-left: 1.25rem;
+					background: {
+						color: $color-white;
+					}
+				}
+			}
+		}
+	}
+
 	&--flex {
 		display: flex;
 		flex-direction: row;
@@ -54,17 +89,59 @@ main {
 
 		&-h {
 			&590 {
-				&::before {
-					overflow: hidden;
-					content: "";
-					display: block;
-					padding-bottom: percentage(590 / 1600);
+				// @include media("<=lg-widescreen") {
+				// 	&::before {
+				// 		overflow: hidden;
+				// 		content: "";
+				// 		display: block;
+				// 		padding-bottom: percentage(590 / 1600);
+				// 	}
+				// }
+
+				// @include media(">lg-widescreen") {
+				// 	height: 36.875rem;
+				// }
+
+				@include media(">smart-phone") {
+					height: 36.875rem;
+				}
+
+				@include media("<=smart-phone") {
+					height: 32rem;
 				}
 			}
 		}
 
 		> div {
 			height: 100%;
+		}
+
+		&-imageBelow {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				content: "";
+				display: block;
+				background: {
+					color: $color-white;
+				}
+
+				@include media("<=ipad", ">smart-phone") {
+					height: 9rem;
+				}
+
+				@include media("<=desktop", ">ipad") {
+					height: 11.375rem;
+				}
+
+				@include media(">desktop") {
+					height: 14.375rem;
+				}
+			}
 		}
 	}
 
@@ -132,7 +209,7 @@ main {
 
 		&--lg {
 			@include media("<=smart-phone") {
-				padding: 2.5rem 0;	
+				padding: 3rem 0;	
 			}
 
 			@include media("<=ipad", ">smart-phone") {
@@ -150,7 +227,7 @@ main {
 
 		&--lgx {
 			@include media("<=smart-phone") {
-				padding: 2.5rem 0;	
+				padding: 3rem 0;	
 			}
 
 			@include media("<=ipad", ">smart-phone") {
@@ -166,9 +243,27 @@ main {
 			}
 		}
 
-		&--lgxx {
+		&--lg-1x {
 			@include media("<=smart-phone") {
+				padding: 3rem 0;	
+			}
+
+			@include media("<=ipad", ">smart-phone") {
 				padding: 4rem 0;	
+			}
+
+			@include media("<=desktop", ">ipad") {
+				padding: 5rem 0;
+			}
+
+			@include media(">desktop") {
+				padding: 8rem 0;	
+			}
+		}
+
+		&--lg-2x {
+			@include media("<=smart-phone") {
+				padding: 3rem 0;	
 			}
 
 			@include media("<=ipad", ">smart-phone") {
@@ -181,6 +276,24 @@ main {
 
 			@include media(">desktop") {
 				padding: 11.250rem 0;	
+			}
+		}
+
+		&--lg-3x {
+			@include media("<=smart-phone") {
+				padding: 3rem 0;	
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				padding: 9rem 0;	
+			}
+
+			@include media("<=desktop", ">ipad") {
+				padding: 11.5rem 0;
+			}
+
+			@include media(">desktop") {
+				padding: 14.375rem 0;	
 			}
 		}
 	}
@@ -255,12 +368,14 @@ main {
 	@include media("<=smart-phone") {
 		&-theme--green {
 			.block__body {
+				width: 100%;
 				background: $color-green;
 			}
 		}
 
 		&-theme--yellow {
 			.block__body {
+				width: 100%;
 				background: $color-yellow;
 			}
 		}
@@ -330,7 +445,14 @@ main {
 	h3.block__title {
 		&--md {
 			margin-bottom: 1.5rem;
-			font-size: 2.5rem;
+			
+			@include media("<=smart-phone") {
+				font-size: 1.75rem;
+			}
+
+			@include media(">smart-phone") {
+				font-size: 2.35rem;
+			}
 		}
 	}
 }
@@ -407,45 +529,219 @@ main {
 .icard {
 	line-height: 1.75rem;
 
-	&--abs {
-		position: absolute;
+	&__wrap {
+		&--default {
+			position: relative;
+		}
+	}
 
-		&-topLeft {
-			top: 0;
+	&--stacked {
+
+		@include media("<=smart-phone") {
+			margin-bottom: 25px;
+		}
+
+		h5 {
+			font-size: 1.125rem;
+			line-height: 1.5rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1.35rem;
+			}
+		}
+
+		ul {
+			margin-top: 1.25rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1.25rem;
+			}
+
+			li {
+				//padding-left: 35px;
+				list-style: disc;
+				list-style-position: inside;
+
+				@include media("<=smart-phone") {
+					text-align: left;
+				}
+			}
+		}
+		
+		&:not(.icard--stacked-noshadow) {
+			box-shadow: 20px 20px 0px transparentize($color-green26, 0);
+		}
+
+		&-topoffset {
+			&55 {
+				transform: translate3d(0rem, -3.438rem, 0);
+			}
+		}
+
+		.block--stacked-imageBelow & {
+			position: relative;
+			z-index: 1;
+
+			@include media("<=smart-phone") {
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+
+		&-enterprise {
+			@include media(">smart-phone") {
+				margin-top: 2rem;
+			}
+		}
+
+		&-notifics {
+
+			@include media("<=ipad", ">smart-phone") {
+				margin-top: -13rem;
+			}
+			
+			@include media("<=laptop", ">ipad") {
+				margin-top: -27rem;
+			}
+
+			@include media("<=desktop", ">laptop") {
+				margin-top: -26rem;
+			}
+
+			@include media(">desktop") {
+				margin-top: -35rem;
+			}
+		}
+
+		&-pullRight {
+			//float: right;
+			margin-left: auto;
+		}
+
+		&-inside {
+			width: 100%;
+
+			@include media("<=smart-phone") {
+				height: 100%;
+				text-align: center;
+			}
+
+			p {
+				font-size: 0.875rem;
+				line-height: 1.5rem;
+			}
+
+			&__body {
+				position: absolute;
+			    content: "";
+				background: {
+					color: $color-green26;
+				}
+
+				@include media("<=smart-phone") {
+					bottom: 0;
+					padding: 20px 15px;
+				}
+
+				@include media(">smart-phone") {
+					bottom: -2rem;
+					padding: 2.5rem 3rem;
+				}
+			}
+		}
+
+		&-outside {
+			width: 100%;
+
+			@include media("<=smart-phone") {
+				height: 100%;
+				text-align: center;
+			}
+
+			h5 {
+				font-size: 1.5rem;
+			}
+
+			p {
+				font-size: 0.875rem;
+				line-height: 1.5rem;
+			}
+
+			&__body {
+				position: absolute;
+			    bottom: 0rem;
+			    content: "";
+				background: {
+					color: $color-green26;
+				}
+
+				@include media("<=smart-phone") {
+					left: 50%;
+					padding: 2rem 2rem;
+					width: 100%;
+					max-width: 260px;
+					transform: translateX(-50%);
+				}
+
+				@include media(">smart-phone") {
+					left: 0rem;
+					padding: 2.5rem 3rem;
+					max-width: 330px;
+				}
+			}
+		}
+	}
+
+	&--abs {
+		@include media(">smart-phone") {
+			position: absolute;
+
+			&-topLeft {
+				top: 0;
+			}	
+		}
+	}
+
+	&--xs {
+		max-width: 480px;
+
+		@include media("<=smart-phone") {
+			padding: 20px 15px;
+		}
+
+		@include media(">smart-phone") {
+			padding: 3.5rem 3.438rem 4rem;
 		}
 	}
 
 	&--sm {
-		padding: 6rem 3.438rem;
-		//width: 100%;
-		max-width: 480px;
+		@include media("<=smart-phone") {
+			padding: 20px 15px;
+		}
+
+		@include media(">smart-phone") {
+			padding: 3rem 3.438rem 5.375rem;
+		}
 	}
 
-	&--stacked {
-		box-shadow: 20px 20px 0px transparentize($color-green26, 0);
+	&--lg {
+		//width: 100%;
+		max-width: 480px;
 
-		&-topoffset {
-			transform: translate3d(0rem, -3.438rem, 0);
+		@include media("<=smart-phone") {
+			margin-right: auto;
+			margin-left: auto;
+			padding: 2rem 2rem 3rem;
+		}
+
+		@include media(">smart-phone") {
+			padding: 6rem 3.438rem 8.375rem;
 		}
 	}
 
 	h3 {
 		&:not(:last-child) {
 			margin-bottom: 1.35rem;
-		}
-	}
-
-	ul {
-		margin-top: 1.25rem;
-
-		&:not(:last-child) {
-			margin-bottom: 1.25rem;
-		}
-
-		li {
-			//padding-left: 35px;
-			list-style: disc;
-			list-style-position: inside;
 		}
 	}
 }
@@ -474,7 +770,11 @@ main {
 				padding-right: 5px;
 				padding-left: 5px;
 
-				@include media(">smart-phone") {
+				@include media("<ipad", ">smart-phone") {
+					width: 50%;
+				}
+
+				@include media(">=ipad") {
 					width: 33.3333333%;
 				}
 
@@ -557,6 +857,8 @@ main {
 	}
 
 	&__picture-wrap {
+		transition: all linear 0.35s;
+
 		@include media(">smart-phone") {
 			position: absolute;
 			top: -6.75rem;
@@ -565,6 +867,245 @@ main {
 				width: auto;
 				max-width: inherit;
 			}
+		}
+
+		@include media("<desktop", ">=ipad") {
+			top: 0;
+			max-width: 100%;
+		}
+
+		@include media("<ipad", ">smart-phone") {
+			top: 0;
+			max-width: 100%;
+		}
+	}
+}
+
+/* Stacked grid */
+.stacked {
+	&--col {
+		&-inside {
+
+			@include media("<=smart-phone") {
+				padding-bottom: 30px;
+				height: 32rem;
+				bottom: 0;
+			}
+
+			@include media("<ipad", ">smart-phone") {
+				min-height: 34rem;
+			}
+
+			@include media(">ipad") {
+				min-height: 29.375rem;
+			}
+
+			&:first-of-type {
+				.icard--stacked-inside__body {
+					@include media("<=smart-phone") {
+						right: 25px;
+						left: 25px;
+					}
+
+					@include media(">smart-phone") {
+						right: 1.5rem;
+						left: -2rem;
+					}
+				}
+			}
+
+			&:last-of-type {
+				.icard--stacked-inside__body {
+					@include media("<=smart-phone") {
+						right: 25px;
+						left: 25px;
+					}
+
+					@include media(">smart-phone") {
+						right: -2rem;
+						left: 1.5rem;
+					}
+				}
+			}
+		}
+
+		&-outside {
+
+			@include media("<=smart-phone") {
+				height: 23rem;
+				bottom: 0;
+			}
+
+			@include media(">smart-phone") {
+				min-height: 29.375rem;
+			}
+		}
+	}
+
+	&__picture {
+		&--abs {
+			overflow: hidden;
+
+			@include media("<=smart-phone") {
+				position: relative;
+				top: auto !important;
+				right: auto !important;
+				left: auto !important;
+				//height: 25rem;
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				height: 29rem;
+			}
+
+			@include media("<=desktop", ">ipad") {
+				height: 32rem;
+			}
+
+			@include media(">desktop") {
+				height: 35.625rem;
+			}
+
+			@include media(">smart-phone") {
+				position: absolute;
+			}
+
+			// &::before {
+			// 	content: "";
+			// 	display: block;
+			// 	padding-bottom: percentage(570 / 1260);
+			// }
+		}
+
+		&-img {
+			@include media(">smart-phone") {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				right: 0;
+				bottom: 0;
+				// width: auto;
+				// height: 100%;
+				// max-width: none;
+				// max-height: none;
+				transform: translate3d(-50%, -50%, 0);
+			}
+
+			@include media("<=1300px", ">smart-phone") {
+				width: auto;
+				max-width: inherit;
+				max-height: inherit;
+				height: 100%;
+			}
+		}
+
+		&--offset {
+			&Right {
+				.icard__wrap--full & {
+					//top: 14%;
+					@include media(">smart-phone") {
+						top: 8rem;
+						left: percentage(200 / 984);
+						right: 0;
+					}
+				}
+
+				.icard__wrap--default & {
+					left: 0;
+
+					@include media(">desktop") {
+						top: 8rem;
+					}
+
+					@include media("<=desktop") {
+						top: 5rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.site-icon {
+	&__list {
+		display: flex;
+		justify-content: center;
+
+		@include media("<=phone") {
+			margin-right: -5px;
+			margin-left: -5px;
+		}
+
+		@include media("<=smart-phone", ">phone") {
+			margin-right: -8px;
+			margin-left: -8px;
+		}
+
+		@include media(">smart-phone") {
+			margin-right: -22px;
+			margin-left: -22px;
+		}
+	}
+
+	&__item {
+
+		@include media("<=phone") {
+			padding-right: 5px;
+			padding-left: 5px;
+		}
+
+		@include media("<=smart-phone", ">phone") {
+			padding-right: 8px;
+			padding-left: 8px;
+		}
+
+		@include media(">smart-phone") {
+			padding-right: 22px;
+			padding-left: 22px;
+		}
+	}
+}
+
+.usage {
+	&__list {
+		
+		@include media(">phone-570") {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-right: -10px;
+			margin-left: -10px;
+		}
+
+		@include media("<=phone-570") {
+
+		}
+	}
+
+	&__item {
+		//width: 25%;
+		padding: 0 10px;
+	}
+
+	&__link {
+		display: block;
+		margin-bottom: 1rem;
+		padding: 1.125rem 25px;
+		background: {
+			color: $color-whisper;
+		};
+		border: 1px solid transparent;
+		border-radius: 100px;
+		color: $color-gray9d;
+		line-height: 1;
+
+		&:hover {
+			background: {
+				color: $color-white;
+			};
+			border-color: $color-graybb;
+			transition: all linear 0.5s;
+			color: $color-graybb;
 		}
 	}
 }

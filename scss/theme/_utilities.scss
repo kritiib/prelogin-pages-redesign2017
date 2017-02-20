@@ -77,7 +77,7 @@
 			color: $color-white;
 		}
 
-		.bkg--green & {
+		[class*="bkg--green"] & {
 			color: $color-green;
 		}
 
@@ -233,7 +233,11 @@
 	}
 
 	&-btm25 {
-		margin-bottom: 25px;
+		margin-bottom: 1.575rem;;
+	}
+
+	&-btm30 {
+		margin-bottom: 1.875rem;;
 	}
 }
 
@@ -288,6 +292,10 @@
 		color: $color-green;
 	}
 
+	&--green-dark {
+		color: $color-green-dark;
+	}
+
 	&--gray9d {
 		color: $color-gray9d;
 	}
@@ -310,6 +318,13 @@
 }
 
 .bkg {
+	&--white {
+		background: {
+			color: $color-white;
+		}
+		box-shadow: 1px 2px 17px 0 rgba(0,0,0,0.15)
+	}
+
 	&--gray {
 		background-color: $color-gray;
 		* {
@@ -333,8 +348,12 @@
 
 	&--green-md {
 		background-color: $color-green34;
-		* {
+		h1, h2, h3, h5, h5, h6, p, div, ul, li, a {
 			color: $color-white;
+		}
+
+		.color--green-dark {
+			color: $color-green-dark;
 		}
 	}
 
@@ -357,5 +376,75 @@
 		* {
 			color: $color-white;
 		}
+	}
+}
+
+.opaque {
+	&--v7 {
+		opacity: 0.7;
+	}
+}
+
+.link__icon {
+	position: relative;
+	padding-right: 1.5rem;
+
+	&:hover {
+		color: $color-graybb;
+	}
+
+	.icon {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		display: inline-block;
+		transform: translateY(-50%);
+	}
+}
+
+.backTop {
+	&-wrapper {
+		position: fixed;
+	    right: 15px;
+	    bottom: 25px;
+	    z-index: 2;
+	    pointer-events: none;
+	    opacity: 0;
+	    background: $color-green-dark;
+	    transform: translateY(50px);
+	    transition: all ease 0.35s;
+
+	    &.animated {
+	    	opacity: 1;
+	    	pointer-events: auto;
+	    	transform: translateY(0px);
+			transition: all linear 0.45s;	    	
+	    }
+
+	    .arrow--top {
+			position: relative;
+		    top: 0;
+		    display: block;
+		    width: 3.125rem;
+	    	height: 3.125rem;
+		    color: #ffffff;
+		    font-size: 1.25rem;
+		    text-align: center;
+		    line-height: 3.125rem;
+		    transform: rotate(-90deg);
+		    transition: all ease-in-out 0.35s;
+	    }
+	}
+
+	&__trigger {
+		display: block;
+	    width: 3.125rem;
+	    height: 3.125rem;
+	}
+}
+
+@include media("<=smart-phone") {
+	.text-left, .text-right {
+		text-align: center;
 	}
 }
