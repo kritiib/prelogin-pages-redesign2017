@@ -71,7 +71,7 @@ img {
 
 a {
 	text-decoration: none;
-	transition: all ease 0.35s;
+	transition: all ease 0.5s;
 
 	&:hover,
 	&:focus,
@@ -195,6 +195,10 @@ h1, h2, h3, h4, h5, h6 {
 			}
 		}
 	}
+}
+
+h2 {
+	font-size: 1.500rem;
 }
 
 h3 {

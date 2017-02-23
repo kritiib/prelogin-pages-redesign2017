@@ -260,15 +260,15 @@ figure {
 		.col {
 			&__content {
 				display: flex;
+				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-
-				padding: 1.25rem 1.5rem 1.75rem;
+				padding: 1.25rem 1.5rem 1.25rem;
 				width: 100%;
 				min-height: 13.875rem;
 				border: 1px solid $color-graye5;
-				font-weight: bold;
 				text-align: center;
+				transition: all ease 0.35s;
 
 				@include media("<=phone") {
 					min-height: 8rem;
@@ -284,6 +284,38 @@ figure {
 
 				h6 {
 					font-weight: bold;
+
+					&:not(:last-child) {
+						margin-bottom: 0.25rem;
+					}
+				}
+
+				.animated-para {
+					position: absolute;
+					opacity: 0;
+					pointer-events: none;
+					transform-origin: 50% 100%;
+					transform: translateY(20px) translateZ(0); //scale3d(0, 0, 0);
+					transition: all linear 0.35s;
+				}
+
+				&:hover {
+					background: {
+						color: $color-green26;
+					}
+					transition: all linear 0.5s;
+
+					* {
+						color: $color-white;
+					}
+
+					.animated-para {
+						position: relative;
+						opacity: 1;
+						pointer-events: auto;
+						transform: translateY(0px) translateZ(0); //scale3d(1, 1, 1);
+						transition: all linear 0.35s;
+					}
 				}
 			}
 		}
@@ -321,7 +353,7 @@ figure {
 					font-size: 2rem;
 				}
 
-				@include media("<desktop", ">ipad") {
+				@include media("<=desktop", ">ipad") {
 					font-size: 2.25rem;
 				}
 

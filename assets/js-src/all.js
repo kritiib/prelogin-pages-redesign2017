@@ -15,3 +15,5 @@
 // @koala-append "lightbox-jquery.js"
 // @koala-append "sticky-footer.js"
 // @koala-append "last-row-cols.js"
+// @koala-append "flipbox-panel.js"
+// @koala-append "jquery-tour-filter.js"

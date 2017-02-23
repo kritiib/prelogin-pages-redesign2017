@@ -1,0 +1,145 @@
+.col {
+	&--product-tour {
+		&-sm {
+			@include media(">smart-phone") {
+				width: 35%;
+			}
+		}
+
+		&-lg {
+			@include media(">smart-phone") {
+				width: 65%;
+			}
+		}
+
+		h2 {
+			@include media("<=smart-phone") {
+				margin-bottom: 1.5rem;
+			}
+
+			@include media("<=ipad", ">smart-phone") {
+				margin-bottom: 1.25rem;
+			}
+
+			@include media(">ipad") {
+				margin-bottom: 1.75rem;
+			}
+		}
+
+		.title-with-icon {
+			position: relative;
+			padding-left: 4.250rem;
+
+			.picto {
+				position: absolute;
+				top: -27px;
+				left: 0;
+				content: "";
+				background: {
+					image: url(../../images/picto-power-search.png);
+					repeat: no-repeat;
+				}
+				width: 46px;
+				height: 63px;
+			}
+		}
+
+		p {
+			&:not(:first-child) {
+				margin-top: 1.75rem;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
+
+		ul {
+			li {
+				margin-bottom: 15px;
+				&:not(:last-of-type) {
+					//margin-bottom: 15px;
+				}
+
+				> span {
+					position: relative;
+					display: inline-block;
+
+					&::after {
+						position: absolute;
+						right: 0;
+						bottom: -10px;
+						left: 0;
+						content: "";
+						padding-bottom: 8px;
+						background: {
+							image: url(../../images/dashed-pattern.png);
+							repeat: repeat-x;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.product-tour {
+	&__rows {
+
+		&--odd,
+		&:nth-of-type(odd) {
+			.col--product-tour {
+				&[data-order="1"] {
+					order: 1;
+				}
+
+				&[data-order="2"] {
+					order: 2;
+				}
+			}
+		}
+
+		&--even,
+		&:nth-of-type(even) {
+			.col--product-tour {
+				&[data-order="2"] {
+					order: 1;
+				}
+
+				&[data-order="1"] {
+					order: 2;
+				}
+			}
+		}
+
+		&:not(:last-of-type) {
+			padding-bottom: 7.50rem;
+		}
+	}
+
+	&__video-row {
+		margin-top: 2.5rem;
+
+		.play-video {
+			position: relative;
+			padding-left: 3.80rem;
+			color: $color-blue18;
+			font-size: 1.25rem;
+
+			.play-video-picto {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				display: inline-block;
+				vertical-align: middle;
+				background: {
+					image: url(../../images/tour-video-icon.png);
+					repeat: no-repeat;
+				}
+				width: 2.813rem;
+				height: 2.375rem;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}

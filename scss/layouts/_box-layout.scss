@@ -139,6 +139,48 @@
 }
 
 .gutter {
+	&-70 {
+		@include media("<=smart-phone") {
+			margin-right: -15px;
+			margin-left: -15px;
+
+			>[class*="col-"] {
+				padding-right: 15px;
+				padding-left: 15px;
+			}
+		}
+
+		@include media("<=ipad", ">smart-phone") {
+			margin-right: -20px;
+			margin-left: -20px;
+
+			>[class*="col-"] {
+				padding-right: 20px;
+				padding-left: 20px;
+			}
+		}
+
+		@include media("<=laptop", ">ipad") {
+			margin-right: -30px;
+			margin-left: -30px;
+
+			>[class*="col-"] {
+				padding-right: 30px;
+				padding-left: 30px;
+			}
+		}
+
+		@include media(">laptop") {
+			margin-right: -30px;
+			margin-left: -30px;
+
+			>[class*="col-"] {
+				padding-right: 35px;
+				padding-left: 35px;
+			}
+		}
+	}
+
 	&-60 {
 		@include media("<=smart-phone") {
 			margin-right: -15px;

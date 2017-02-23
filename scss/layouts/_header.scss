@@ -33,6 +33,13 @@
 				background: {
 					color: transparent;
 				}
+
+				.template.template--nobanner & {
+					background: {
+						color: $color-white;
+					}
+					box-shadow: 0px 3px 10px -7px transparentize($color-black, 0.75);
+				}
 			}
 		}
 	}

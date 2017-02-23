@@ -90,6 +90,10 @@
 }
 
 .text {
+	&--dashed {
+		border-bottom: 1px dashed;
+	}
+
 	&-link {
 		display: inline-block;
 
@@ -181,9 +185,55 @@
 	    backface-visibility: hidden;
 	    transition: all ease 0.75s;
 	}
+
+	&-circular {
+		margin-left: 0.5rem;
+		background: {
+			color: $color-white;
+		};
+		border-radius: 50%;
+
+		@include media("<=smart-phone") {
+			width: 1.85rem;
+			height: 1.85rem;
+		}
+
+		@include media(">smart-phone") {
+			width: 2.25rem;
+			height: 2.25rem;
+		}
+
+		.tour-guide-row & {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			color: $color-green;
+			line-height: 2.25rem;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				font-size: 1.25rem;
+				font-weight: bold;
+				transform: translate(-50%, -50%);
+
+				@include media("<=smart-phone") {
+					font-size: 1rem;
+				}
+
+				@include media(">smart-phone") {
+					font-size: 1.125rem;
+				}
+			}
+		}
+	}
 }
 
 .gap {
+	&-top15 {
+		margin-top: 15px;
+	}
+
 	&-top25 {
 		margin-top: 25px;
 	}
@@ -232,12 +282,29 @@
 		}
 	}
 
+	&-btm10 {
+		&:last-child,
+		&:last-of-type,
+		&:first-child {
+			margin-bottom: 10px;
+		}
+	}
+
 	&-btm25 {
 		margin-bottom: 1.575rem;;
 	}
 
 	&-btm30 {
 		margin-bottom: 1.875rem;;
+	}
+
+	&-zero {
+		&:last-child,
+		&:last-of-type,
+		&:first-child {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -440,6 +507,51 @@
 		display: block;
 	    width: 3.125rem;
 	    height: 3.125rem;
+	}
+}
+
+.flipping {
+	&__panel {
+		perspective: 600px;
+
+		&--hovered {
+			.flipping__face--front {
+				transform: rotateY(-180deg);
+			}
+
+			.flipping__face--back {
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+		}
+	}
+
+	&__face {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 11px 20px 10px;
+		border: 1px solid #e5e5e5;
+
+		&--front {
+			z-index: $zIndex-one;
+			transform: rotateX(0deg) rotateY(0deg);
+			transform-style: preserve-3d;
+			backface-visibility: hidden;
+			transition: all 0.4s ease-in-out;
+		}
+
+		&--back {
+			z-index: $zIndex-one + 1;
+			transform: rotateY(-180deg);
+			transform-style: preserve-3d;
+			backface-visibility: hidden;
+			transition: all 0.4s ease-in-out;
+		}
 	}
 }
 

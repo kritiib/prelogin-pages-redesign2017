@@ -13,12 +13,22 @@
 	}
 
 	&__item {
-		@include media("<=desktop", ">smart-phone") {
+		@include media("<=ipad", ">smart-phone") {
+			padding: 8px 15px;
+		}
+
+		@include media("<=desktop", ">ipad") {
 			padding: 8px 20px;
 		}
 
 		@include media(">desktop") {
-			padding: 15px 20px;
+			.template:not(.template--nobanner) & {
+				padding: 15px 20px;
+			}
+
+			.template.template--nobanner & {
+				padding: 10px 20px;
+			}
 		}
 
 		&:not(.has-submenu) {
@@ -69,12 +79,30 @@
 	}
 
 	&__link {
-		color: $color-white;
+		.template:not(.template--nobanner) & {
+			color: $color-white;
 
-		&:hover,
-		&:focus,
-		&:active {
-			color: $color-graya4;
+			&:hover,
+			&:focus,
+			&:active {
+				color: $color-green;
+			}
+		}
+
+		.template.template--nobanner & {
+			@include media("<=smart-phone") {
+				color: $color-white;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: $color-graya4;
+				}
+			}
+
+			@include media(">smart-phone") {
+				color: $color-black;
+			}
 		}
 
 		@include media("<=smart-phone") {

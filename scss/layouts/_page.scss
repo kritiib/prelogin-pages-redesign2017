@@ -14,6 +14,25 @@ main {
 	@include media("<=smart-phone") {
 		padding-top: 50px;
 	}
+
+	/* Main element inside no banner template */
+	.template--nobanner & {
+		@include media("<=smart-phone") {
+			padding-top: 56px;
+		}
+
+		@include media("<=ipad", ">smart-phone") {
+			padding-top: 66px;
+		}
+
+		@include media("<=desktop", ">ipad") {
+			padding-top: 69px;
+		}
+
+		@include media(">desktop") {
+			padding-top: 82px;
+		}
+	}
 }
 
 .block {
@@ -23,6 +42,18 @@ main {
 		&:not(:last-of-type) {
 			//padding-bottom: 0;
 		}
+	}
+
+	@include media(">smart-phone") {
+		&--enterprise {
+			&.block--is-inverse {
+				padding-bottom: 10rem;
+			}
+		}
+	}
+
+	&--product-tour {
+		padding: 1rem 0 12.813rem 0;
 	}
 
 	&__header {
@@ -769,6 +800,7 @@ main {
 				display: flex;
 				padding-right: 5px;
 				padding-left: 5px;
+				min-height: 120px;
 
 				@include media("<ipad", ">smart-phone") {
 					width: 50%;
@@ -838,9 +870,14 @@ main {
 			}
 
 			&__content {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 				padding: 1.25rem 1.5rem 1.75rem;
 				width: 100%;
-				border: 1px solid $color-graye5;
+				// height: 100%;
+				//border: 1px solid $color-graye5;
 				text-align: center;
 
 				h5 {
@@ -869,7 +906,7 @@ main {
 			}
 		}
 
-		@include media("<desktop", ">=ipad") {
+		@include media("<=desktop", ">=ipad") {
 			top: 0;
 			max-width: 100%;
 		}

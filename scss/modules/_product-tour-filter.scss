@@ -1,0 +1,92 @@
+.product-tour {
+	&-filter {
+		&__list {
+			margin-right: -9px;
+			margin-left: -9px;
+			line-height: 1;
+
+			li {
+				padding-right: 9px;
+				padding-left: 9px;
+
+				.btn {
+					padding: 0.75rem 23px;
+					min-width: 80px;
+					background: {
+						color: transparent;
+					};
+					border: 1px solid $color-green;
+					color: $color-green;
+					font-size: 0.938rem;
+
+					&:hover {
+						background: {
+							color: $color-green;
+						};
+						color: $color-white;
+					}
+				}
+
+				&.isActive {
+					.btn {
+						background: {
+							color: $color-green;
+						};
+						color: $color-white;
+					}
+				}
+			}
+		}
+	}
+
+	&-filter {
+		&__cols {
+			display: flex;
+
+			@include media("<=smart-phone", ">phone-570") {
+				width: 50%;
+			}
+
+			&:not(.last-col) {
+				margin-bottom: 10px;
+			}
+
+			> div {
+				display: flex;
+				flex-direction: column;
+				//justify-content: center;
+				padding: 3rem 3.125rem 3rem 5.625rem;
+				background: {
+					color: $color-white;
+				};
+			}
+
+			h2 {
+				margin-bottom: 1.275rem;
+
+				&.title-with-icon {
+					position: relative;
+
+					.picto-filter-icon {
+						position: absolute;
+						top: 50%;
+						left: -3.275rem;
+						display: inline-block;
+						vertical-align: middle;
+						background: {
+							image: url(../../images/haxa-icon.png);
+							repeat: no-repeat;
+						}
+						width: 2.125rem;
+						height: 1.875rem;
+						transform: translateY(-50%);
+					}
+				}
+			}
+
+			p {
+				line-height: 1.65rem;
+			}
+		}
+	}
+}
